@@ -19,11 +19,19 @@ class ViewController: UIViewController {
     ]
     @IBOutlet weak var animatingView: UIView!
     @IBOutlet weak var mockImage: UIImageView!
+
+    @IBOutlet weak var purpleView: UIView!
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         mockImage.image = UIImage(named: "mock")
+        
+        btn2.leadingAnchor.constraint(equalTo: btn1.trailingAnchor, constant: 10).isActive = true
+        purpleView.widthAnchor.constraint(equalTo: btn2.widthAnchor, constant: 0).isActive = true
     }
 
     override func didReceiveMemoryWarning() {
