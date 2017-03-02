@@ -17,9 +17,13 @@ class ViewController: UIViewController {
         .green,
         .brown
     ]
+    @IBOutlet weak var animatingView: UIView!
+    @IBOutlet weak var mockImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        mockImage.image = UIImage(named: "mock")
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +31,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBOutlet weak var animatingView: UIView!
+
 
     @IBAction func animatingViewTapped(_ sender: Any) {
         let animator = UIViewPropertyAnimator(duration: 1.0, curve: .easeIn){
