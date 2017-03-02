@@ -196,7 +196,7 @@
 				TargetAttributes = {
 					F5AAECE31E6831B200CEB41F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5H99ZYMEE4;
+						DevelopmentTeam = 9E72MPGUQ7;
 						ProvisioningStyle = Automatic;
 					};
 					F5AAECFA1E6831B200CEB41F = {
@@ -417,7 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5H99ZYMEE4;
+				DEVELOPMENT_TEAM = 9E72MPGUQ7;
 				INFOPLIST_FILE = animateUIKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sample.animateUIKit;
@@ -430,7 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5H99ZYMEE4;
+				DEVELOPMENT_TEAM = 9E72MPGUQ7;
 				INFOPLIST_FILE = animateUIKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sample.animateUIKit;
@@ -516,6 +516,7 @@
 				F5AAED111E6831B200CEB41F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5AAED121E6831B200CEB41F /* Build configuration list for PBXNativeTarget "animateUIKitTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +525,7 @@
 				F5AAED141E6831B200CEB41F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5AAED151E6831B200CEB41F /* Build configuration list for PBXNativeTarget "animateUIKitUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +534,7 @@
 				F5AAED171E6831B200CEB41F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

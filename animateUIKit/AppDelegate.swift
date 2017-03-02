@@ -14,10 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable: Any], completionHandler: @escaping() -> Void){
+        
+        if let text = responseInfo[UIUserNotificationActionResponseTypedTextKey] as? String{
+            print(text)
+            
+        }
+        
+        completionHandler()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
