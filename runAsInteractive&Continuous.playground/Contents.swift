@@ -9,7 +9,7 @@ import PlaygroundSupport
 
 
 // ask for infinite execution time
-PlaygroundPage.current.needsIndefiniteExecution = true
+PlaygroundPage.current.needsIndefiniteExecution = false
 
 
 // subclass UIView and add tap gesture upon initializer once mounted execute finishExecution()
