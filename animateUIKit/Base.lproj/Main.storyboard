@@ -219,7 +219,6 @@
                         <constraints>
                             <constraint firstItem="3TF-CQ-l6w" firstAttribute="top" secondItem="Cgw-Xp-awI" secondAttribute="bottom" id="RBW-Uz-oAF"/>
                             <constraint firstItem="3TF-CQ-l6w" firstAttribute="leading" secondItem="rkS-R5-jNc" secondAttribute="leadingMargin" id="nqD-gX-NXZ"/>
-                            <constraint firstItem="ZPn-cL-T5p" firstAttribute="top" secondItem="3TF-CQ-l6w" secondAttribute="bottom" constant="547" id="uNI-l0-vcX"/>
                         </constraints>
                     </view>
                 </viewController>

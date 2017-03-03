@@ -20,6 +20,7 @@ class SecondViewController: UIViewController {
             static let readLater = "readLater"
             static let showDetails = "showDetails"
             static let unsubscribe = "unsubscribe"
+            static let reply = "reply"
         }
         
     }
@@ -67,8 +68,10 @@ class SecondViewController: UIViewController {
         let actionShowDetails = UNNotificationAction(identifier: Notification.Action.showDetails, title: "Show Details", options: [.foreground])
         let actionUnsubscribe = UNNotificationAction(identifier: Notification.Action.unsubscribe, title: "Unsubscribe", options: [.destructive, .authenticationRequired])
         
+        let actionReply = UNTextInputNotificationAction(identifier: Notification.Action.reply, title: "Reply", options:[], textInputButtonTitle: "Send", textInputPlaceholder: "Type your message")
+        
         // Define Category
-        let tutorialCategory = UNNotificationCategory(identifier: Notification.Category.tutorial, actions: [actionReadLater, actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
+        let tutorialCategory = UNNotificationCategory(identifier: Notification.Category.tutorial, actions: [actionReadLater, actionShowDetails, actionUnsubscribe, actionReply], intentIdentifiers: [], options: [])
         
         // Register Category
         UNUserNotificationCenter.current().setNotificationCategories([tutorialCategory])
@@ -89,36 +92,68 @@ class SecondViewController: UIViewController {
         
     }
     private func scheduleLocalNotification(){
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "title"
-        notificationContent.subtitle = "subtitle"
+        let content = UNMutableNotificationContent()
+        content.title = "title"
+        content.subtitle = "subtitle"
         
-        notificationContent.body = "In this tutorial, you learn how to schedule local notifications with the User Notifications framework."
-        
+        content.body = "Some notification body information to be displayed."
+        content.badge = 1
+        content.sound = UNNotificationSound.default()
         
         // set category identifier
-        notificationContent.categoryIdentifier = Notification.Category.tutorial
+        content.categoryIdentifier = Notification.Category.tutorial
         
         // add Trigger
-        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10.0, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false)
+        
+/* 
+    1- trigger by time intervals / depending on scheduled time, an hour from now
+        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 60.0 * 60.0, repeats: false)
+        
+    2- trigger by calendar dates regardless of scheduled time / upcoming events/ appointments everyday at 10pm
+        var date = DateComponents()
+        date.hour = 22
+        let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+
+    3- trigger by location whenever user enters a geographical region, like a weather forecast/ local news
+
+        let center = CLLocationCoordinate2D(latitude: 40.0, longitude: 120.0)
+        let region = CLCircularRegion(center: center, radius: 500.0, identifier: "Location")
+        region.notifyOnEntry = true;
+        region.notifyOnExit = false;
+        let locationTrigger = UNLocationNotificationTrigger(region: region, repeats: false)
+
+ */
         
         // create notification request
-        let notificationRequest = UNNotificationRequest(identifier: "animateUIKit_local_notification", content: notificationContent, trigger: notificationTrigger)
+        let request = UNNotificationRequest(identifier: "animateUIKit_local_notification", content: content, trigger: trigger)
         
         // add request to user Notification center
-        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+        UNUserNotificationCenter.current().add(request) { (error) in
             if let error = error{
                 print("unable to add notification request (\(error), \(error.localizedDescription))")
             }
         }
     }
     
+    /// handle response here 
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        switch response.actionIdentifier {
+        
+        let actionIdentifier = response.actionIdentifier
+        let content = response.notification.request.content
+        
+        switch actionIdentifier {
         case Notification.Action.readLater:
             print("Save Tutorial For Later")
         case Notification.Action.unsubscribe:
             print("Unsubscribe Reader")
+        case Notification.Action.reply:
+            if let textResponse = response as? UNTextInputNotificationResponse {
+                let reply = textResponse.userText
+                // send reply message 
+                print("user response \(reply) content looks like this : \(content)")
+            }
         default:
             print("Other Action")
         }
