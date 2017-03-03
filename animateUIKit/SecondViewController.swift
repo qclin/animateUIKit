@@ -96,7 +96,7 @@ class SecondViewController: UIViewController {
         content.title = "title"
         content.subtitle = "subtitle"
         
-        content.body = "Some notification body information to be displayed."
+        content.body = "Body Text"
         content.badge = 1
         content.sound = UNNotificationSound.default()
         
