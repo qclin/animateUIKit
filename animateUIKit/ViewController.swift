@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController, UNUserNotificationCenterDelegate{
+class ViewController: UIViewController{
     let colors: [UIColor] = [
         .red,
         .blue,
@@ -26,11 +26,21 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate{
     @IBOutlet weak var btn2: UIButton!
     
     
-    struct Notification{
+    
+    struct Notification {
+        
+        struct Category {
+            static let tutorial = "tutorial"
+        }
+        
         struct Action {
             static let readLater = "readLater"
+            static let showDetails = "showDetails"
+            static let unsubscribe = "unsubscribe"
         }
+        
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +55,24 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate{
         configureUserNotificationsCenter()
     }
 
+    @IBAction func didTapForNotification(_ sender: Any) {
+        
+        // Request Notification Settings
+        UNUserNotificationCenter.current().getNotificationSettings{ (notificationSettings) in
+            switch notificationSettings.authorizationStatus{
+                case .notDetermined:
+                    self.requestAuthorization(completionHandler: {(success) in
+                        guard success else { return }
+                        // schedule local Notficationn 
+                        self.scheduleLocalNotification()
+                    })
+                case .authorized:
+                    self.scheduleLocalNotification()
+                case .denied:
+                    print("Application Not allowed to dispaly notifications")
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -79,20 +107,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate{
         
         return foundColor
     }
-    
-    
-    struct Notification{
-        
-        struct Category{
-            static let tutorial = "tutorial"
-        }
-        
-        struct Action {
-            static let readLater = "readLater"
-            static let showDetails = "showDetails"
-            static let unsubscribe = "unsubscribe"
-        }
-    }
+
     
     private func configureUserNotificationsCenter() {
         // Configure User Notification Center
@@ -109,8 +124,24 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate{
         UNUserNotificationCenter.current().setNotificationCategories([tutorialCategory])
     }
     
+    
+    
+    private func requestAuthorization(completionHandler: @escaping (_ success: Bool) -> ()) {
+        // request Authorization
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+            if let error = error {
+                print("request authorization failed (\(error), \(error.localizedDescription))")
+            }
+            
+            completionHandler(success)
+            
+        }
+        
+    }
     private func scheduleLocalNotification(){
         let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "title"
+        notificationContent.subtitle = "subtitle"
         
         notificationContent.body = "In this tutorial, you learn how to schedule local notifications with the User Notifications framework."
      
@@ -121,6 +152,15 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate{
         // add Trigger 
         let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10.0, repeats: false)
         
+        // create notification request
+        let notificationRequest = UNNotificationRequest(identifier: "animateUIKit_local_notification", content: notificationContent, trigger: notificationTrigger)
+        
+        // add request to user Notification center 
+        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+            if let error = error{
+                print("unable to add notification request (\(error), \(error.localizedDescription))")
+            }
+        }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -136,5 +176,13 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate{
         completionHandler()
     }
 
+}
+
+
+
+extension ViewController: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert])
+    }
 }
 
