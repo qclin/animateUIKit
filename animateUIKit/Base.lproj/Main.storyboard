@@ -23,20 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKJ-mX-NBi">
-                                <rect key="frame" x="67" y="268.5" width="240" height="130"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="67" y="269" width="240" height="130"/>
+                                <color key="backgroundColor" red="0.52941176469999995" green="0.89411764709999997" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="vHa-3F-bxg" appends="YES" id="wg6-Vq-CRA"/>
                                 </connections>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wcs-U8-CuI">
-                                <rect key="frame" x="31" y="43" width="141" height="131.5"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="WW1-VC-Dbi" appends="YES" id="D8d-gO-k2S"/>
-                                </connections>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-y8-PC8">
                                 <rect key="frame" x="180" y="43" width="88" height="103"/>
                                 <subviews>
@@ -87,37 +80,41 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrF-Ny-Wi3">
-                                <rect key="frame" x="134" y="406.5" width="107" height="30"/>
+                                <rect key="frame" x="134" y="407" width="107" height="30"/>
                                 <state key="normal" title="go to next page"/>
                                 <connections>
                                     <segue destination="wYu-bn-Hsq" kind="show" id="Wz7-yN-2U9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awG-MX-SGP">
-                                <rect key="frame" x="140" y="460.5" width="30" height="30"/>
+                                <rect key="frame" x="140" y="461" width="30" height="30"/>
                                 <state key="normal" title="btn1"/>
-                                <connections>
-                                    <action selector="didTapForNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JBz-rM-zu3"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLN-La-8hZ">
-                                <rect key="frame" x="140" y="498.5" width="179" height="126.5"/>
+                                <rect key="frame" x="140" y="499" width="179" height="126"/>
                                 <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="179" placeholder="YES" id="Lim-4v-vrp"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTV-hy-gJP">
-                                <rect key="frame" x="180" y="460.5" width="32" height="30"/>
+                                <rect key="frame" x="180" y="461" width="32" height="30"/>
                                 <state key="normal" title="btn2"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wcs-U8-CuI">
+                                <rect key="frame" x="31" y="99" width="141" height="131.5"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WW1-VC-Dbi" appends="YES" id="D8d-gO-k2S"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UKJ-mX-NBi" firstAttribute="top" secondItem="Wcs-U8-CuI" secondAttribute="bottom" constant="38" id="42M-Se-g6u"/>
                             <constraint firstItem="UKJ-mX-NBi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7yc-FQ-4I8"/>
                             <constraint firstItem="Dr0-y8-PC8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="43" id="82E-So-PVa"/>
                             <constraint firstItem="aLN-La-8hZ" firstAttribute="top" secondItem="awG-MX-SGP" secondAttribute="bottom" constant="8" symbolic="YES" id="8tI-W6-aec"/>
-                            <constraint firstItem="UKJ-mX-NBi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="A1a-1E-AvQ"/>
                             <constraint firstItem="awG-MX-SGP" firstAttribute="baseline" secondItem="zTV-hy-gJP" secondAttribute="baseline" id="KPZ-r0-bfE"/>
                             <constraint firstItem="FrF-Ny-Wi3" firstAttribute="top" secondItem="UKJ-mX-NBi" secondAttribute="bottom" constant="8" id="Qns-7u-4JV"/>
                             <constraint firstItem="UKJ-mX-NBi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S6X-bj-z6Q"/>
@@ -128,14 +125,14 @@
                             <constraint firstItem="UKJ-mX-NBi" firstAttribute="centerX" secondItem="FrF-Ny-Wi3" secondAttribute="centerX" id="aE0-Oz-Gfp"/>
                             <constraint firstItem="zTV-hy-gJP" firstAttribute="leading" secondItem="cb5-uc-q5N" secondAttribute="leading" id="enX-4D-Zro"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aLN-La-8hZ" secondAttribute="bottom" constant="42" id="gde-za-gSA"/>
-                            <constraint firstItem="Wcs-U8-CuI" firstAttribute="bottom" secondItem="cb5-uc-q5N" secondAttribute="bottom" id="hYT-6Z-UZJ"/>
+                            <constraint firstItem="Wcs-U8-CuI" firstAttribute="bottom" secondItem="cb5-uc-q5N" secondAttribute="bottom" constant="56" id="hYT-6Z-UZJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dr0-y8-PC8" secondAttribute="trailing" constant="91" id="joW-sG-yGY"/>
-                            <constraint firstItem="Dr0-y8-PC8" firstAttribute="top" secondItem="Wcs-U8-CuI" secondAttribute="top" id="jzI-ej-Fmn"/>
+                            <constraint firstItem="Dr0-y8-PC8" firstAttribute="top" secondItem="Wcs-U8-CuI" secondAttribute="top" constant="-56" id="jzI-ej-Fmn"/>
                             <constraint firstItem="cb5-uc-q5N" firstAttribute="top" secondItem="Dr0-y8-PC8" secondAttribute="bottom" constant="8" symbolic="YES" id="lWi-nJ-YUE"/>
                             <constraint firstItem="zTV-hy-gJP" firstAttribute="top" secondItem="FrF-Ny-Wi3" secondAttribute="bottom" constant="24" id="mxu-GY-bdN"/>
                             <constraint firstAttribute="bottom" secondItem="Dr0-y8-PC8" secondAttribute="bottom" constant="521" id="owm-rj-JUl"/>
+                            <constraint firstItem="UKJ-mX-NBi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="tVi-a1-ldV"/>
                             <constraint firstItem="Wcs-U8-CuI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="wW1-6b-r9q"/>
-                            <constraint firstItem="UKJ-mX-NBi" firstAttribute="top" secondItem="Wcs-U8-CuI" secondAttribute="bottom" constant="94" id="xk7-Xa-giC"/>
                             <constraint firstItem="Dr0-y8-PC8" firstAttribute="leading" secondItem="cb5-uc-q5N" secondAttribute="leading" id="zCg-UB-WMc"/>
                         </constraints>
                     </view>
@@ -162,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="1055.2" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="syc-ok-9Xi">
             <objects>
-                <viewController id="wYu-bn-Hsq" sceneMemberID="viewController">
+                <viewController id="wYu-bn-Hsq" customClass="SecondViewController" customModule="animateUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cgw-Xp-awI"/>
                         <viewControllerLayoutGuide type="bottom" id="ZPn-cL-T5p"/>
@@ -209,6 +206,14 @@
                                 </constraints>
                                 <variation key="heightClass=compact" spacing="10"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eS1-VR-lpg">
+                                <rect key="frame" x="124" y="318" width="127" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="trigger notification"/>
+                                <connections>
+                                    <action selector="didTapForNotification:" destination="wYu-bn-Hsq" eventType="touchUpInside" id="ySx-YX-K90"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
