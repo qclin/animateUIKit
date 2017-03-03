@@ -13,6 +13,7 @@
 		F57052EF1E69B4300035902A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57052EE1E69B4300035902A /* NotificationViewController.swift */; };
 		F57052F21E69B4300035902A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57052F01E69B4300035902A /* MainInterface.storyboard */; };
 		F57052F61E69B4300035902A /* reminderNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F57052E71E69B4300035902A /* reminderNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F57052FD1E69BF390035902A /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57052FC1E69BF390035902A /* ThirdViewController.swift */; };
 		F5AAECE81E6831B200CEB41F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAECE71E6831B200CEB41F /* AppDelegate.swift */; };
 		F5AAECEA1E6831B200CEB41F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAECE91E6831B200CEB41F /* ViewController.swift */; };
 		F5AAECED1E6831B200CEB41F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5AAECEB1E6831B200CEB41F /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		F57052F11E69B4300035902A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F57052F31E69B4300035902A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F57052FB1E69BCE00035902A /* reminderNotification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = reminderNotification.entitlements; sourceTree = "<group>"; };
+		F57052FC1E69BF390035902A /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		F5AAECE41E6831B200CEB41F /* animateUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animateUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5AAECE71E6831B200CEB41F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5AAECE91E6831B200CEB41F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				F5AAECE71E6831B200CEB41F /* AppDelegate.swift */,
 				F5AAECE91E6831B200CEB41F /* ViewController.swift */,
+				F57052FC1E69BF390035902A /* ThirdViewController.swift */,
 				F5AAECEB1E6831B200CEB41F /* Main.storyboard */,
 				F57052E11E698DB70035902A /* SecondViewController.swift */,
 				F5AAECF11E6831B200CEB41F /* Assets.xcassets */,
@@ -384,6 +387,7 @@
 			files = (
 				F57052E21E698DB70035902A /* SecondViewController.swift in Sources */,
 				F5AAECEA1E6831B200CEB41F /* ViewController.swift in Sources */,
+				F57052FD1E69BF390035902A /* ThirdViewController.swift in Sources */,
 				F5AAECE81E6831B200CEB41F /* AppDelegate.swift in Sources */,
 				F5AAECF01E6831B200CEB41F /* animateUIKit.xcdatamodeld in Sources */,
 			);
